@@ -1,0 +1,60 @@
+name: "TEST: 테스트 추가"
+description: 테스트 코드 추가를 위한 이슈입니다.
+title: "[TEST] "
+labels: ["test"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: 🧪 요약
+      description: 추가할 테스트에 대한 간단한 설명
+      placeholder: 예) UserService 단위 테스트 추가
+    validations:
+      required: true
+
+  - type: dropdown
+    id: test_type
+    attributes:
+      label: 📋 테스트 유형
+      description: 어떤 종류의 테스트인가요?
+      options:
+        - 단위 테스트 (Unit Test)
+        - 통합 테스트 (Integration Test)
+        - E2E 테스트 (End-to-End Test)
+        - 성능 테스트 (Performance Test)
+        - 보안 테스트 (Security Test)
+    validations:
+      required: true
+
+  - type: textarea
+    id: target
+    attributes:
+      label: 🎯 테스트 대상
+      description: 테스트할 코드/기능을 설명해주세요
+      placeholder: |
+        - 대상 클래스/메서드: UserService.createUser()
+        - 테스트할 시나리오: 유효한 사용자 생성, 중복 이메일 검증, 필수 필드 누락 등
+    validations:
+      required: true
+
+  - type: textarea
+    id: coverage
+    attributes:
+      label: 📊 커버리지 목표
+      description: 테스트 커버리지 목표나 개선 사항
+      placeholder: |
+        - 현재 커버리지: 65%
+        - 목표 커버리지: 80%
+        - 중요 엣지 케이스 포함
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✅ 체크리스트
+      options:
+        - label: 테스트 케이스 목록 작성
+        - label: 모의 객체(Mock) 필요 여부 확인
+        - label: 테스트 데이터 준비
+        - label: CI/CD 파이프라인 통합 확인
